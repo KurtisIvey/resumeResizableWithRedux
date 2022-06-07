@@ -15,7 +15,24 @@ const infoSlice = createSlice({
     degreeState: "degree state",
     degreeDateFrom: "degreedateFrom",
     degreeDateTo: "degreedateTo",
-    education: [{ first: "first" }, { light: "light" }],
+    education: [
+      {
+        university: "university",
+        degree: "degree",
+        subject: "computer science",
+        state: "state",
+        from: "01-21-2022",
+        to: "02-22-2022",
+      },
+      {
+        university: "university",
+        degree: "degree",
+        subject: "computer science",
+        state: "state",
+        from: "01-21-2022",
+        to: "02-22-2022",
+      },
+    ],
     experience: [],
   },
   reducers: {

@@ -30,6 +30,17 @@ const RenderedResume = () => {
           <div className="resume__educationContainer">
             <h3 className="resume__sectionTitle">Education</h3>education
             container
+            {education.map((item) => {
+              return (
+                <div className="resume__renderedEdItemContainer">
+                  <div className="resume__edItemFromTo">
+                    {item.from} to {item.to}
+                  </div>
+                  <div className="resume__edItemUniDegreeSubject"></div>
+                  {item.university} {item.degree} {item.subject} {item.state}{" "}
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="resume__personalInfoContainer">
@@ -47,7 +58,9 @@ const RenderedResume = () => {
           </div>
           <div>
             <h4 className="resume__minorSectionTitle">Email</h4>
-            <div className="resume__email resume__personalItems">{email}</div>
+            <div className="resume__email resume__personalItems resume__emailRender">
+              {email}
+            </div>
           </div>
           <div>
             <h4 className="resume__minorSectionTitle">Phone Number</h4>
