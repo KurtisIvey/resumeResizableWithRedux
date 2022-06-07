@@ -1,0 +1,57 @@
+.experience {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.experience__container {
+    display: grid;
+    grid-gap: 9px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    padding: 10px;
+}
+
+.experience__header {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.experience__input {
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 7px;
+    
+}
+
+.experience__previousJob {
+    grid-column: span 2;
+}
+
+.experience__addBtn {
+    border-radius: 5px;
+    color: white;
+    background-color: grey;
+}
+
+.experience__deleteBtn {
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(241, 77, 77);
+}
+
+
+
+@media screen and (max-width: 539px) {
+
+    .experience__previousJob {
+      grid-column: span 1;
+      
+  }
+  
+}
