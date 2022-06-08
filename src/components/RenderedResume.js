@@ -28,13 +28,14 @@ const RenderedResume = () => {
             experience container
           </div>
           <div className="resume__educationContainer">
-            <h3 className="resume__sectionTitle">Education</h3>education
-            container
+            <h3 className="resume__sectionTitle">Education</h3>
             {education.map((item) => {
               return (
                 <div className="resume__renderedEdItemContainer">
                   <div className="resume__edItemFromTo">
-                    {item.from} to {item.to}
+                    {item.from.substring(2, 0)}
+                    {item.from.slice(-5)} to {item.to.substring(2, 0)}
+                    {item.to.slice(-5)}
                   </div>
                   <div className="resume__edItemUniDegreeSubject"></div>
                   {item.university} {item.degree} {item.subject} {item.state}{" "}
