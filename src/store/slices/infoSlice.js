@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const infoSlice = createSlice({
   name: "info",
@@ -34,9 +34,18 @@ const infoSlice = createSlice({
       },
     ],
     experience: [
-      { previousJob: "prev Job", from: "2022-01-21", to: "2022-01-21" },
-      { previousJob: "prev Job", from: "2022-01-21", to: "2022-01-22" },
+      {
+        previousJob: "prev Job",
+        prevJobDateFrom: "2022-01-21",
+        prevJobDateTo: "2022-01-21",
+      },
+      {
+        previousJob: "prev Job",
+        prevJobDateFrom: "2022-01-21",
+        prevJobDateTo: "2022-01-21",
+      },
     ],
+    previousJob: "",
     prevJobDateFrom: "",
     prevJobDateTo: "",
   },
@@ -117,6 +126,9 @@ const infoSlice = createSlice({
         prevJobDateFrom: newJob.prevJobDateFrom,
         prevJobDateTo: newJob.prevJobDateTo,
       });
+    },
+    handleDeleteExperience(state) {
+      state.experience.pop();
     },
     setPrevJob(state, action) {
       state.previousJob = action.payload;

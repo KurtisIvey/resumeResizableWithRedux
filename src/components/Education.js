@@ -31,8 +31,17 @@ const Education = () => {
   const handleDeleteEducation = () =>
     dispatch(infoSliceActions.handleDeleteEducation());
 
-  const handleAddEducation = (e) => {
+  const handleSubmit = (e, param) => {
     e.preventDefault();
+    console.log(param);
+    if (param === "add") {
+      handleAddEducation();
+    } else if (param === "delete") {
+      handleDeleteEducation();
+    }
+  };
+
+  const handleAddEducation = () => {
     const newItem = {
       university: university,
       degree: degree,
@@ -46,14 +55,10 @@ const Education = () => {
 
   return (
     <div className="education">
-      <button onClick={() => handleDeleteEducation()}> delete</button>
       <h2 onClick={() => console.log(education)} className="education__header">
         Education
       </h2>
-      <form
-        onSubmit={(e) => handleAddEducation(e)}
-        className="education__container"
-      >
+      <form className="education__container">
         <input
           name="university"
           type="text"
@@ -61,7 +66,6 @@ const Education = () => {
           defaultValue=""
           placeholder="University"
           className="education__input"
-          required
         />
         <input
           name="degree"
@@ -70,16 +74,14 @@ const Education = () => {
           defaultValue=""
           placeholder="Degree Level"
           className="education__input"
-          required
+          r
         />
         <input
           name="subject"
           type="text"
           onChange={(e) => setSubject(e.target.value)}
-          defaultValue=""
           placeholder="Major"
           className="education__input"
-          required
         />
         <input
           name="degreeState"
@@ -88,10 +90,9 @@ const Education = () => {
           defaultValue=""
           placeholder="State"
           className="education__input"
-          required
         />
         <span className="dateSpan">
-          <label className="dateLabel" for="dateFrom">
+          <label className="dateLabel" htmlFor="dateFrom">
             From:
           </label>
           <input
@@ -99,13 +100,11 @@ const Education = () => {
             name="degreeDateFrom"
             type="date"
             onChange={(e) => setDegreeDateFrom(e.target.value)}
-            defaultValue=""
             className=" education__date"
-            required
           />
         </span>
         <span className="dateSpan">
-          <label className="dateLabel" for="dateTo">
+          <label className="dateLabel" htmlFor="dateTo">
             To:
           </label>
           <input
@@ -113,14 +112,21 @@ const Education = () => {
             name="degreeDateTo"
             type="date"
             onChange={(e) => setDegreeDateTo(e.target.value)}
-            defaultValue=""
             className="education__date"
-            required
           />
         </span>
-
-        <button className="education__addBtn">Add</button>
-        <button className="education__deleteBtn">Delete</button>
+        <button
+          className="education__addBtn"
+          onClick={(e) => handleSubmit(e, "add")}
+        >
+          Add
+        </button>
+        <button
+          className="education__deleteBtn"
+          onClick={(e) => handleSubmit(e, "delete")}
+        >
+          Delete
+        </button>
       </form>
     </div>
   );

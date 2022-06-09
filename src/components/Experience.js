@@ -1,7 +1,16 @@
 import React from "react";
 import "./styling/experience.css";
+import { useSelector, useDispatch } from "react-redux";
+import { infoSliceActions } from "../store/slices/infoSlice";
 
 const Experience = () => {
+  const dispatch = useDispatch();
+  const prevJob = useSelector((state) => state.info.previousJob);
+  const prevJobDateFrom = useSelector((state) => state.info.prevJobDateFrom);
+  const prevJobDateTo = useSelector((state) => state.info.prevJobDateTo);
+  const setExperience = (exp) => dispatch(infoSliceActions.setExperience(exp));
+  const handleDeleteExperience = () =>
+    dispatch(infoSliceActions.handleDeleteExperience());
   /*
   const handleDeleteExperience = (e) => {
     e.preventDefault();
@@ -10,29 +19,24 @@ const Experience = () => {
     setValue((prevValue) => ({ ...prevValue, experience: experienceArray }));
     console.log(value.experience);
   };
-
+*/
   const handleAddExperience = (e) => {
     e.preventDefault();
-    const experienceArray = value.experience;
-    let valuesToBeInjectedArray = [];
-    const targetContainer = e.target.children[0].children;
-    //multiple values present in experience, so used for loop to grab them all
-    //will have to render each value individually so pushed them into an array
-    for (let i = 0; i < targetContainer.length - 1; i++) {
-      valuesToBeInjectedArray.push(targetContainer[i].value);
-      targetContainer[i].value = "";
-    }
-
-    experienceArray.push(valuesToBeInjectedArray);
-    setValue((prevValue) => ({ ...prevValue, experience: experienceArray }));
-    console.log(value.experience);
+    const newItem = {
+      prevJob: prevJob,
+      prevJobDateFrom: prevJobDateFrom,
+      prevJobDateTo: prevJobDateTo,
+    };
+    setExperience(newItem);
   };
-  
-  */
+
   return (
     <div className="experience">
       <h2 className="experience__header">Experience</h2>
-      <form className="experience__container">
+      <form
+        onSubmit={(e) => handleAddExperience(e)}
+        className="experience__container"
+      >
         <input
           name="previousJob"
           type="text"
@@ -42,7 +46,7 @@ const Experience = () => {
           className="experience__input experience__previousJob"
         />
         <span className="dateSpan">
-          <label className="dateLabel" for="previousJobFrom">
+          <label className="dateLabel" htmlFor="previousJobFrom">
             From:
           </label>
           <input
@@ -56,7 +60,7 @@ const Experience = () => {
         </span>
 
         <span className="dateSpan">
-          <label className="dateLabel" for="previousJobTo">
+          <label className="dateLabel" htmlFor="previousJobTo">
             To:
           </label>
           <input
@@ -70,8 +74,13 @@ const Experience = () => {
         </span>
 
         <button className="experience__addBtn">Add</button>
-        <button className="experience__deleteBtn">Delete</button>
       </form>
+      <button
+        onClick={() => handleDeleteExperience()}
+        className="experience__deleteBtn"
+      >
+        Delete
+      </button>
     </div>
   );
 };
