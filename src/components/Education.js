@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styling/education.css";
 import { useSelector, useDispatch } from "react-redux";
 import { infoSliceActions } from "../store/slices/infoSlice";
-import { current } from "@reduxjs/toolkit";
 
 const Education = () => {
   const dispatch = useDispatch();
   //state
-  const university = useSelector((state) => state.university);
-  const degree = useSelector((state) => state.degree);
-  const subject = useSelector((state) => state.subject);
-  const degreeState = useSelector((state) => state.degreeState);
-  const degreeDateFrom = useSelector((state) => state.degreeDateFrom);
-  const degreeDateTo = useSelector((state) => state.degreeDateTo);
-  const education = useSelector((state) => state.education);
+  const university = useSelector((state) => state.info.university);
+  const degree = useSelector((state) => state.info.degree);
+  const subject = useSelector((state) => state.info.subject);
+  const degreeState = useSelector((state) => state.info.degreeState);
+  const degreeDateFrom = useSelector((state) => state.info.degreeDateFrom);
+  const degreeDateTo = useSelector((state) => state.info.degreeDateTo);
+  const education = useSelector((state) => state.info.education);
   // infoSliceActions
   const setUniversity = (universityToBeSet) =>
     dispatch(infoSliceActions.setUniversity(universityToBeSet));
@@ -29,31 +28,25 @@ const Education = () => {
     dispatch(infoSliceActions.setDegreeDateTo(degreeDateToBeSet));
   const setEducation = (educationToBeSet) =>
     dispatch(infoSliceActions.setEducation(educationToBeSet));
-  const addToEducation = (arg) =>
-    dispatch(infoSliceActions.addToEducation(arg));
-
-  const handleDeleteEducation = (e) => {
-    let newEdArray = education;
-    newEdArray.pop();
-    setEducation(newEdArray);
-  };
+  const handleDeleteEducation = () =>
+    dispatch(infoSliceActions.handleDeleteEducation());
 
   const handleAddEducation = (e) => {
     e.preventDefault();
-    addToEducation({
+    const newItem = {
       university: university,
       degree: degree,
       subject: subject,
       degreeState: degreeState,
       degreeDateFrom: degreeDateFrom,
       degreeDateTo: degreeDateTo,
-    });
-    console.log("trying to add");
-    console.log(education);
+    };
+    setEducation(newItem);
   };
 
   return (
     <div className="education">
+      <button onClick={() => handleDeleteEducation()}> delete</button>
       <h2 onClick={() => console.log(education)} className="education__header">
         Education
       </h2>
@@ -75,7 +68,7 @@ const Education = () => {
           type="text"
           onChange={(e) => setDegree(e.target.value)}
           defaultValue=""
-          placeholder="Degree Type"
+          placeholder="Degree Level"
           className="education__input"
           required
         />
@@ -84,7 +77,7 @@ const Education = () => {
           type="text"
           onChange={(e) => setSubject(e.target.value)}
           defaultValue=""
-          placeholder="Subject"
+          placeholder="Major"
           className="education__input"
           required
         />

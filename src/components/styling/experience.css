@@ -47,11 +47,3 @@
 
 
 
-@media screen and (max-width: 539px) {
-
-    .experience__previousJob {
-      grid-column: span 1;
-      
-  }
-  
-}

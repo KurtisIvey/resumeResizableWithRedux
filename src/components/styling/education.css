@@ -60,11 +60,3 @@
 }
 
 
-@media screen and (max-width: 539px) {
-
-    .education__input {
-        grid-column: span 1;
-    }
-    
-  
-}

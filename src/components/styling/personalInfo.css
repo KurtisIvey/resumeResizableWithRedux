@@ -39,17 +39,3 @@
     background-color: grey;
 }
 
-@media screen and (max-width: 539px) {
-    .personalInfo__container { 
-        display: grid;
-        grid-gap: 9px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        padding: 10px;
-    }
-    .personalInfo__submitBtn {
-        grid-column: span 1;
-        border-radius: 5px;
-        color: white;
-        background-color: grey;
-    }      
-}

@@ -79,13 +79,47 @@
         font-size: .9rem;
         padding: 0;
     }
-
-.resume__renderedEdItemContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.resume__renderedExpItemContainer{
+    margin-top: 5px;
+    padding: 3px;
+    display: flex;
     
     border: 1px solid red;
 }
+    .resume__renderedExpFromTo{
+        display: flex;
+        padding-right: 50px;
+        flex-direction: column;
+        align-items: center;
+        font-size: .7rem;
+        font-weight: 600;
+    }
+    .resume__renderedExpPrevJob {
+        display: flex;
+        align-self: center;
+        font-size: .9rem;
+    }
+
+.resume__renderedEdItemContainer {
+    margin-top: 5px;
+    padding: 3px;
+    display: flex;
+    
+    border: 1px solid red;
+}
+    .resume__edItemFromTo {
+        display: flex;
+        padding-right: 50px;
+        flex-direction: column;
+        align-items: center;
+        font-size: .7rem;
+        font-weight: 600;
+    }
+    .resume__edItemUniDegreeSubject{
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+    }
 @media screen and (max-width: 745px) {
     .resume {
         width: 500px;

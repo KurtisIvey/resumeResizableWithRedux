@@ -21,19 +21,24 @@ const infoSlice = createSlice({
         degree: "degree",
         subject: "computer science",
         state: "state",
-        from: "01-21-2022",
-        to: "02-22-2022",
+        degreeDateFrom: "2022-01-21",
+        degreeDateTo: "2022-01-21",
       },
       {
         university: "university",
         degree: "degree",
         subject: "computer science",
         state: "state",
-        from: "01-21-2022",
-        to: "02-22-2022",
+        degreeDateFrom: "2022-01-21",
+        degreeDateTo: "2022-01-21",
       },
     ],
-    experience: [],
+    experience: [
+      { previousJob: "prev Job", from: "2022-01-21", to: "2022-01-21" },
+      { previousJob: "prev Job", from: "2022-01-21", to: "2022-01-22" },
+    ],
+    prevJobDateFrom: "",
+    prevJobDateTo: "",
   },
   reducers: {
     setFirstName(state, action) {
@@ -80,25 +85,23 @@ const infoSlice = createSlice({
       state.degreeDateTo = action.payload;
       console.log(state.degreeDateTo);
     },
+    setEducation2(state, action) {
+      state.education = action.payload;
+    },
     setEducation(state, action) {
-      state.education = [...state, action.payload];
-    },
-    addToEducation(state) {
-      let newArray = state.education;
-
-      newArray.push({
-        university: state.university,
-        degree: state.degree,
-        subject: state.subject,
-        degreeState: state.degreeState,
-        degreeDateFrom: state.degreeDateFrom,
-        degreeDateTo: state.degreeDateTo,
+      const newItem = action.payload;
+      state.education.push({
+        university: newItem.university,
+        degree: newItem.degree,
+        subject: newItem.subject,
+        degreeState: newItem.degreeState,
+        degreeDateFrom: newItem.degreeDateFrom,
+        degreeDateTo: newItem.degreeDateTo,
       });
-      state.education = newArray;
-      console.log("trying");
-      console.log(current(state.education));
     },
-
+    handleDeleteEducation(state) {
+      state.education.pop();
+    },
     resetEducationFields(state) {
       state.university = "";
       state.degree = "";
@@ -108,7 +111,21 @@ const infoSlice = createSlice({
       state.degreeDateTo = "";
     },
     setExperience(state, action) {
-      state.experience = action.payload;
+      const newJob = action.payload;
+      state.education.push({
+        previousJob: newJob.previousJob,
+        prevJobDateFrom: newJob.prevJobDateFrom,
+        prevJobDateTo: newJob.prevJobDateTo,
+      });
+    },
+    setPrevJob(state, action) {
+      state.previousJob = action.payload;
+    },
+    setPrevJobDateFrom(state, action) {
+      state.prevJobDateFrom = action.payload;
+    },
+    setPrevJobDateTo(state, action) {
+      state.prevJobDateTo = action.payload;
     },
   },
 });

@@ -25,20 +25,54 @@ const RenderedResume = () => {
         <div className="resume__edAndExpContainer">
           <div className="resume__experienceContainer">
             <h3 className="resume__sectionTitle">Experience</h3>
-            experience container
+            {experience.map((item, index) => {
+              return (
+                <div key={index} className="resume__renderedExpItemContainer">
+                  <div className="resume__renderedExpFromTo">
+                    <div>
+                      {item.from.substring(2, 0)}
+                      {item.from.slice(-5)}
+                    </div>
+                    <div>to</div>
+                    <div>
+                      {item.to.substring(2, 0)}
+                      {item.to.slice(-5)}
+                    </div>
+                  </div>
+
+                  <div className="resume__renderedExpPrevJob">
+                    {item.previousJob}
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <div className="resume__educationContainer">
             <h3 className="resume__sectionTitle">Education</h3>
-            {education.map((item) => {
+            {education.map((item, index) => {
               return (
-                <div className="resume__renderedEdItemContainer">
+                <div key={index} className="resume__renderedEdItemContainer">
                   <div className="resume__edItemFromTo">
-                    {item.from.substring(2, 0)}
-                    {item.from.slice(-5)} to {item.to.substring(2, 0)}
-                    {item.to.slice(-5)}
+                    <div>
+                      {item.degreeDateFrom.substring(5, 8)}
+                      {item.degreeDateFrom.substring(0, 4)}
+                    </div>
+
+                    <div>to</div>
+                    <div>
+                      {" "}
+                      {item.degreeDateTo.substring(5, 8)}
+                      {item.degreeDateTo.substring(0, 4)}
+                    </div>
                   </div>
-                  <div className="resume__edItemUniDegreeSubject"></div>
-                  {item.university} {item.degree} {item.subject} {item.state}{" "}
+                  <div className="resume__edItemUniDegreeSubject">
+                    <span style={{ fontWeight: "600" }}>
+                      {item.university}, {item.state}
+                    </span>
+                    <div>Degree Level: {item.degree}</div>
+
+                    <div>Major: {item.subject}</div>
+                  </div>
                 </div>
               );
             })}

@@ -27,7 +27,7 @@
 .app__body {
     display: flex;
     flex-direction: row;
-    padding: 25px;
+    padding: 15px;
     justify-self: center;
     align-items: center;
     border: 1px solid pink;
@@ -89,7 +89,6 @@
     .app__body {
         display: flex;
         flex-direction: column;
-        margin: 0;
         
 
         
