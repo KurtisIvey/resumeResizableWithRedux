@@ -31,6 +31,7 @@
     justify-self: center;
     align-items: center;
     border: 1px solid pink;
+    height: 90vh;
 }
 
 .app__entryContainer {
@@ -59,7 +60,7 @@
         flex-direction: column;
         margin: 0;
         min-height: null;
-        height: null;
+        height: 121vh;
         
     }
     .app__entryContainer {

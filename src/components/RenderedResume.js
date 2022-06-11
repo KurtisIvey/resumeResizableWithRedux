@@ -30,13 +30,13 @@ const RenderedResume = () => {
                 <div key={index} className="resume__renderedExpItemContainer">
                   <div className="resume__renderedExpFromTo">
                     <div>
-                      {item.prevJobDateFrom.substring(5, 8)}
-                      {item.prevJobDateFrom.substring(0, 4)}
+                      {item.prevJobDateFrom}
+                      {item.prevJobDateFrom}
                     </div>
                     <div>to</div>
                     <div>
-                      {item.prevJobDateTo.substring(5, 8)}
-                      {item.prevJobDateTo.substring(0, 4)}
+                      {item.prevJobDateTo}
+                      {item.prevJobDateTo}
                     </div>
                   </div>
 

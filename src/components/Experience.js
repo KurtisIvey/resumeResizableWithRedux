@@ -9,23 +9,20 @@ const Experience = () => {
   const prevJobDateFrom = useSelector((state) => state.info.prevJobDateFrom);
   const prevJobDateTo = useSelector((state) => state.info.prevJobDateTo);
   const setExperience = (exp) => dispatch(infoSliceActions.setExperience(exp));
+  const setPrevJob = (job) => dispatch(infoSliceActions.setPrevJob(job));
+  const setPrevJobFrom = (from) =>
+    dispatch(infoSliceActions.setPrevJobDateFrom(from));
+  const setPrevJobTo = (to) => dispatch(infoSliceActions.setPrevJobDateTo(to));
+
   const handleDeleteExperience = () =>
     dispatch(infoSliceActions.handleDeleteExperience());
-  /*
-  const handleDeleteExperience = (e) => {
-    e.preventDefault();
-    const experienceArray = value.experience;
-    experienceArray.pop();
-    setValue((prevValue) => ({ ...prevValue, experience: experienceArray }));
-    console.log(value.experience);
-  };
-*/
+
   const handleAddExperience = (e) => {
     e.preventDefault();
     const newItem = {
-      prevJob: prevJob,
-      prevJobDateFrom: prevJobDateFrom,
-      prevJobDateTo: prevJobDateTo,
+      previousJob: prevJob,
+      previousJobDateFrom: prevJobDateFrom,
+      previousJobDateTo: prevJobDateTo,
     };
     setExperience(newItem);
   };
@@ -40,6 +37,7 @@ const Experience = () => {
         <input
           name="previousJob"
           type="text"
+          onChange={(e) => setPrevJob(e.target.value)}
           defaultValue=""
           placeholder="Previous Job"
           required
@@ -53,6 +51,7 @@ const Experience = () => {
             id="previousJobFrom"
             name="previousJobFrom"
             type="date"
+            onChange={(e) => setPrevJobFrom(e.target.value)}
             defaultValue=""
             required
             className="experience__input"
@@ -67,6 +66,7 @@ const Experience = () => {
             id="previousJobTo"
             name="previousJobTo"
             type="date"
+            onChange={(e) => setPrevJobTo(e.target.value)}
             defaultValue=""
             required
             className="experience__input"

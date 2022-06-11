@@ -31,17 +31,8 @@ const Education = () => {
   const handleDeleteEducation = () =>
     dispatch(infoSliceActions.handleDeleteEducation());
 
-  const handleSubmit = (e, param) => {
+  const handleAddEducation = (e) => {
     e.preventDefault();
-    console.log(param);
-    if (param === "add") {
-      handleAddEducation();
-    } else if (param === "delete") {
-      handleDeleteEducation();
-    }
-  };
-
-  const handleAddEducation = () => {
     const newItem = {
       university: university,
       degree: degree,
@@ -58,7 +49,10 @@ const Education = () => {
       <h2 onClick={() => console.log(education)} className="education__header">
         Education
       </h2>
-      <form className="education__container">
+      <form
+        onSubmit={(e) => handleAddEducation(e)}
+        className="education__container"
+      >
         <input
           name="university"
           type="text"
@@ -66,6 +60,7 @@ const Education = () => {
           defaultValue=""
           placeholder="University"
           className="education__input"
+          required
         />
         <input
           name="degree"
@@ -74,7 +69,7 @@ const Education = () => {
           defaultValue=""
           placeholder="Degree Level"
           className="education__input"
-          r
+          required
         />
         <input
           name="subject"
@@ -82,6 +77,7 @@ const Education = () => {
           onChange={(e) => setSubject(e.target.value)}
           placeholder="Major"
           className="education__input"
+          required
         />
         <input
           name="degreeState"
@@ -90,6 +86,7 @@ const Education = () => {
           defaultValue=""
           placeholder="State"
           className="education__input"
+          required
         />
         <span className="dateSpan">
           <label className="dateLabel" htmlFor="dateFrom">
@@ -101,6 +98,7 @@ const Education = () => {
             type="date"
             onChange={(e) => setDegreeDateFrom(e.target.value)}
             className=" education__date"
+            required
           />
         </span>
         <span className="dateSpan">
@@ -108,6 +106,7 @@ const Education = () => {
             To:
           </label>
           <input
+            required
             id="dateTo"
             name="degreeDateTo"
             type="date"
@@ -115,19 +114,14 @@ const Education = () => {
             className="education__date"
           />
         </span>
-        <button
-          className="education__addBtn"
-          onClick={(e) => handleSubmit(e, "add")}
-        >
-          Add
-        </button>
-        <button
-          className="education__deleteBtn"
-          onClick={(e) => handleSubmit(e, "delete")}
-        >
-          Delete
-        </button>
+        <button className="education__addBtn">Add</button>
       </form>
+      <button
+        className="education__deleteBtn"
+        onClick={(e) => handleDeleteEducation(e)}
+      >
+        Delete
+      </button>
     </div>
   );
 };
