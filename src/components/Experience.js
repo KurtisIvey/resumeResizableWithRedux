@@ -5,11 +5,13 @@ import { infoSliceActions } from "../store/slices/infoSlice";
 
 const Experience = () => {
   const dispatch = useDispatch();
-  const prevJob = useSelector((state) => state.info.previousJob);
+  const previousJob = useSelector((state) => state.info.previousJob);
   const prevJobDateFrom = useSelector((state) => state.info.prevJobDateFrom);
   const prevJobDateTo = useSelector((state) => state.info.prevJobDateTo);
+  const experience = useSelector((state) => state.info.experience);
   const setExperience = (exp) => dispatch(infoSliceActions.setExperience(exp));
-  const setPrevJob = (job) => dispatch(infoSliceActions.setPrevJob(job));
+  const setPreviousJob = (job) =>
+    dispatch(infoSliceActions.setPreviousJob(job));
   const setPrevJobFrom = (from) =>
     dispatch(infoSliceActions.setPrevJobDateFrom(from));
   const setPrevJobTo = (to) => dispatch(infoSliceActions.setPrevJobDateTo(to));
@@ -19,17 +21,23 @@ const Experience = () => {
 
   const handleAddExperience = (e) => {
     e.preventDefault();
+    console.log("trying to add");
     const newItem = {
-      previousJob: prevJob,
-      previousJobDateFrom: prevJobDateFrom,
-      previousJobDateTo: prevJobDateTo,
+      previousJob: previousJob,
+      prevJobDateFrom: prevJobDateFrom,
+      prevJobDateTo: prevJobDateTo,
     };
     setExperience(newItem);
   };
 
   return (
     <div className="experience">
-      <h2 className="experience__header">Experience</h2>
+      <h2
+        onClick={() => console.log(experience)}
+        className="experience__header"
+      >
+        Experience
+      </h2>
       <form
         onSubmit={(e) => handleAddExperience(e)}
         className="experience__container"
@@ -37,7 +45,7 @@ const Experience = () => {
         <input
           name="previousJob"
           type="text"
-          onChange={(e) => setPrevJob(e.target.value)}
+          onChange={(e) => setPreviousJob(e.target.value)}
           defaultValue=""
           placeholder="Previous Job"
           required

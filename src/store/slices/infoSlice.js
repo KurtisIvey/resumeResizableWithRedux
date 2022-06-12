@@ -120,24 +120,27 @@ const infoSlice = createSlice({
       state.degreeDateTo = "";
     },
     setExperience(state, action) {
-      const newJob = action.payload;
-      state.education.push({
-        previousJob: newJob.previousJob,
-        prevJobDateFrom: newJob.prevJobDateFrom,
-        prevJobDateTo: newJob.prevJobDateTo,
+      const newItem = action.payload;
+      state.experience.push({
+        previousJob: newItem.previousJob,
+        prevJobDateFrom: newItem.prevJobDateFrom,
+        prevJobDateTo: newItem.prevJobDateTo,
       });
     },
     handleDeleteExperience(state) {
       state.experience.pop();
     },
-    setPrevJob(state, action) {
+    setPreviousJob(state, action) {
       state.previousJob = action.payload;
+      console.log(state.previousJob);
     },
     setPrevJobDateFrom(state, action) {
       state.prevJobDateFrom = action.payload;
+      console.log(state.prevJobDateFrom);
     },
     setPrevJobDateTo(state, action) {
       state.prevJobDateTo = action.payload;
+      console.log(state.prevJobDateTo);
     },
   },
 });
