@@ -25,7 +25,7 @@ const RenderedResume = () => {
         <div className="resume__edAndExpContainer">
           <div className="resume__experienceContainer">
             <h3 className="resume__sectionTitle">Experience</h3>
-            {experience.map((item, index) => {
+            {experience.slice(-4).map((item, index) => {
               return (
                 <div key={index} className="resume__renderedExpItemContainer">
                   <div className="resume__renderedExpFromTo">
@@ -49,7 +49,7 @@ const RenderedResume = () => {
           </div>
           <div className="resume__educationContainer">
             <h3 className="resume__sectionTitle">Education</h3>
-            {education.map((item, index) => {
+            {education.slice(-4).map((item, index) => {
               return (
                 <div key={index} className="resume__renderedEdItemContainer">
                   <div className="resume__edItemFromTo">

@@ -1,7 +1,7 @@
 .resume {
     border-radius: 5px;
     width: 550px;
-    height: 716px;
+    height: 758.91px;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 90px 1fr;
@@ -84,7 +84,7 @@
     padding: 3px;
     display: flex;
     
-    border: 1px solid red;
+    
 }
     .resume__renderedExpFromTo{
         display: flex;
@@ -105,7 +105,7 @@
     padding: 3px;
     display: flex;
     
-    border: 1px solid red;
+    
 }
     .resume__edItemFromTo {
         display: flex;
