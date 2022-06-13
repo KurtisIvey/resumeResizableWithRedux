@@ -115,13 +115,13 @@ const Education = () => {
           />
         </span>
         <button className="education__addBtn">Add</button>
+        <div
+          className="education__deleteBtn"
+          onClick={(e) => handleDeleteEducation(e)}
+        >
+          Delete
+        </div>
       </form>
-      <button
-        className="education__deleteBtn"
-        onClick={(e) => handleDeleteEducation(e)}
-      >
-        Delete
-      </button>
     </div>
   );
 };

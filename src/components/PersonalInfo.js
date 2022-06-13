@@ -17,7 +17,8 @@ const PersonalInfo = () => {
   const setEmail = (arg) => dispatch(infoSliceActions.setEmail(arg));
   const setTitle = (arg) => dispatch(infoSliceActions.setTitle(arg));
   const setAddress = (arg) => dispatch(infoSliceActions.setAddress(arg));
-  const setPhoneNumber = (arg) => dispatch(infoSliceActions.setFirstName(arg));
+  const setPhoneNumber = (arg) =>
+    dispatch(infoSliceActions.setPhoneNumber(arg));
 
   return (
     <div className="personalInfo">

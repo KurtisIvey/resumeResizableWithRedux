@@ -22,6 +22,7 @@
 .app__header {
     font-size: 2.5rem;
     padding: 7px 0; 
+    text-align: pad
 }
 
 .app__body {
@@ -35,7 +36,7 @@
 
 .app__entryContainer {
     margin: 10px 35px 11px 0;
-    background-color: rgb(231, 84, 84);
+    background-color: rgb(155, 154, 154);
     border-radius: 5px;
 
     max-width: 720px;
@@ -114,3 +115,4 @@
     
     
 }
+

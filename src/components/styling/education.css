@@ -51,12 +51,32 @@
     border-radius: 5px;
     color: white;
     background-color: grey;
+    border-style: none;
+    font-size: .85rem;
+}
+
+.education__addBtn:hover {
+    background-color: rgb(107, 105, 105);
+}
+
+.education__addBtn:active {
+    background-color: rgb(153, 152, 152);
 }
 
 .education__deleteBtn {
     border-radius: 5px;
     color: white;
     background-color: rgb(241, 77, 77);
+    text-align: center;
+    font-size: .85rem;
+}
+
+.education__deleteBtn:hover {
+    background-color:  rgb(189, 49, 49);
+}
+
+.education__deleteBtn:active {
+    background-color:  rgb(251, 79, 79);
 }
 
 
