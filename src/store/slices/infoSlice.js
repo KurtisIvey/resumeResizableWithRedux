@@ -142,6 +142,11 @@ const infoSlice = createSlice({
       state.prevJobDateTo = action.payload;
       console.log(state.prevJobDateTo);
     },
+    resetExperienceFields(state) {
+      state.previousJob = "";
+      state.prevJobDateFrom = "";
+      state.prevJobDateTo = "";
+    },
   },
 });
 

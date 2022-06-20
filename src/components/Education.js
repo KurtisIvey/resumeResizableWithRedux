@@ -33,6 +33,21 @@ const Education = () => {
   const resetEducationFields = () =>
     dispatch(infoSliceActions.resetEducationFields());
 
+  const resetEdFields = () => {
+    const universityInput = document.getElementById("university");
+    const degreeInput = document.getElementById("degree");
+    const subjectInput = document.getElementById("subject");
+    const degreeStateInput = document.getElementById("degreeState");
+    const degreeDateFromInput = document.getElementById("degreeDateFrom");
+    const degreeDateToInput = document.getElementById("degreeDateTo");
+
+    universityInput.value = "";
+    degreeInput.value = "";
+    subjectInput.value = "";
+    degreeStateInput.value = "";
+    degreeDateFromInput.value = "";
+    degreeDateToInput.value = "";
+  };
   const handleAddEducation = (e) => {
     e.preventDefault();
     const newItem = {
@@ -45,6 +60,7 @@ const Education = () => {
     };
     setEducation(newItem);
     resetEducationFields();
+    resetEdFields();
   };
 
   return (
@@ -57,6 +73,7 @@ const Education = () => {
         className="education__container"
       >
         <input
+          id="university"
           name="university"
           type="text"
           onChange={(e) => setUniversity(e.target.value)}
@@ -64,9 +81,9 @@ const Education = () => {
           placeholder="University"
           className="education__input"
           required
-          value={university}
         />
         <input
+          id="degree"
           name="degree"
           type="text"
           onChange={(e) => setDegree(e.target.value)}
@@ -74,18 +91,18 @@ const Education = () => {
           placeholder="Degree Level"
           className="education__input"
           required
-          value={degree}
         />
         <input
+          id="subject"
           name="subject"
           type="text"
           onChange={(e) => setSubject(e.target.value)}
           placeholder="Major"
           className="education__input"
           required
-          value={subject}
         />
         <input
+          id="degreeState"
           name="degreeState"
           type="text"
           onChange={(e) => setDegreeState(e.target.value)}
@@ -93,36 +110,33 @@ const Education = () => {
           placeholder="State"
           className="education__input"
           required
-          value={degreeState}
         />
         <span className="dateSpan">
-          <label className="dateLabel" htmlFor="dateFrom">
+          <label className="dateLabel" htmlFor="degreeDateFrom">
             From:
           </label>
           <input
             data-testid="degreeDateFrom"
-            id="dateFrom"
+            id="degreeDateFrom"
             name="degreeDateFrom"
             type="date"
             onChange={(e) => setDegreeDateFrom(e.target.value)}
             className=" education__date"
             required
-            value={degreeDateFrom}
           />
         </span>
         <span className="dateSpan">
-          <label className="dateLabel" htmlFor="dateTo">
+          <label className="dateLabel" htmlFor="degreeDateTo">
             To:
           </label>
           <input
             data-testid="degreeDateTo"
-            id="dateTo"
+            id="degreeDateTo"
             name="degreeDateTo"
             type="date"
             onChange={(e) => setDegreeDateTo(e.target.value)}
             className="education__date"
             required
-            value={degreeDateTo}
           />
         </span>
         <button className="education__addBtn">Add</button>

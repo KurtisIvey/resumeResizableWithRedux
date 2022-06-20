@@ -24,6 +24,7 @@ describe("Input entries", () => {
     fireEvent.change(inputElement, { target: { value: "Kurtis" } });
     expect(inputElement.value).toBe("Kurtis");
   });
+
   test("last name input entry can be typed into", () => {
     render(<MockPersonalInfo />);
     const inputElement = screen.getByPlaceholderText(/Last Name/i);

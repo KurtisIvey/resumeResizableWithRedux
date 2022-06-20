@@ -44,3 +44,24 @@ describe("test input entries", () => {
     expect(previousJobToInputElement.value).toBe("2022-03-21");
   });
 });
+
+test("after filling out all experience inputs and clicking add, the input fields reset", () => {
+  render(<MockExperience />);
+  const previousJobInputElement = screen.getByPlaceholderText(/Previous Job/i);
+  fireEvent.change(previousJobInputElement, {
+    target: { value: "previous job entry" },
+  });
+  const previousJobFromInputElement = screen.getByTestId("previousJobFrom");
+  fireEvent.change(previousJobFromInputElement, {
+    target: { value: "2022-01-21" },
+  });
+  const previousJobToInputElement = screen.getByTestId("previousJobTo");
+  fireEvent.change(previousJobToInputElement, {
+    target: { value: "2022-03-21" },
+  });
+  const buttonElement = screen.getByRole("button", { name: /Add/i });
+  fireEvent.click(buttonElement);
+  expect(previousJobInputElement.value).toBe("");
+  expect(previousJobFromInputElement.value).toBe("");
+  expect(previousJobToInputElement.value).toBe("");
+});

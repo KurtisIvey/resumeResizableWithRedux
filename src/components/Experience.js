@@ -15,9 +15,21 @@ const Experience = () => {
   const setPrevJobFrom = (from) =>
     dispatch(infoSliceActions.setPrevJobDateFrom(from));
   const setPrevJobTo = (to) => dispatch(infoSliceActions.setPrevJobDateTo(to));
+  const resetExperienceFields = () =>
+    dispatch(infoSliceActions.resetExperienceFields());
 
   const handleDeleteExperience = () =>
     dispatch(infoSliceActions.handleDeleteExperience());
+
+  const resetExpFields = () => {
+    const previosJobInput = document.getElementById("previousJob");
+    const previousJobFromInput = document.getElementById("previousJobFrom");
+    const previousJobToInput = document.getElementById("previousJobTo");
+
+    previosJobInput.value = "";
+    previousJobFromInput.value = "";
+    previousJobToInput.value = "";
+  };
 
   const handleAddExperience = (e) => {
     e.preventDefault();
@@ -28,6 +40,7 @@ const Experience = () => {
       prevJobDateTo: prevJobDateTo,
     };
     setExperience(newItem);
+    resetExpFields();
   };
 
   return (
@@ -43,6 +56,7 @@ const Experience = () => {
         className="experience__container"
       >
         <input
+          id="previousJob"
           name="previousJob"
           type="text"
           onChange={(e) => setPreviousJob(e.target.value)}
