@@ -30,6 +30,8 @@ const Education = () => {
     dispatch(infoSliceActions.setEducation(educationToBeSet));
   const handleDeleteEducation = () =>
     dispatch(infoSliceActions.handleDeleteEducation());
+  const resetEducationFields = () =>
+    dispatch(infoSliceActions.resetEducationFields());
 
   const handleAddEducation = (e) => {
     e.preventDefault();
@@ -42,6 +44,7 @@ const Education = () => {
       degreeDateTo: degreeDateTo,
     };
     setEducation(newItem);
+    resetEducationFields();
   };
 
   return (
@@ -61,6 +64,7 @@ const Education = () => {
           placeholder="University"
           className="education__input"
           required
+          value={university}
         />
         <input
           name="degree"
@@ -70,6 +74,7 @@ const Education = () => {
           placeholder="Degree Level"
           className="education__input"
           required
+          value={degree}
         />
         <input
           name="subject"
@@ -78,6 +83,7 @@ const Education = () => {
           placeholder="Major"
           className="education__input"
           required
+          value={subject}
         />
         <input
           name="degreeState"
@@ -87,6 +93,7 @@ const Education = () => {
           placeholder="State"
           className="education__input"
           required
+          value={degreeState}
         />
         <span className="dateSpan">
           <label className="dateLabel" htmlFor="dateFrom">
@@ -100,6 +107,7 @@ const Education = () => {
             onChange={(e) => setDegreeDateFrom(e.target.value)}
             className=" education__date"
             required
+            value={degreeDateFrom}
           />
         </span>
         <span className="dateSpan">
@@ -114,6 +122,7 @@ const Education = () => {
             onChange={(e) => setDegreeDateTo(e.target.value)}
             className="education__date"
             required
+            value={degreeDateTo}
           />
         </span>
         <button className="education__addBtn">Add</button>

@@ -63,6 +63,7 @@ const Experience = () => {
             defaultValue=""
             required
             className="experience__input"
+            data-testid="previousJobFrom"
           />
         </span>
 
@@ -78,6 +79,7 @@ const Experience = () => {
             defaultValue=""
             required
             className="experience__input"
+            data-testid="previousJobTo"
           />
         </span>
 

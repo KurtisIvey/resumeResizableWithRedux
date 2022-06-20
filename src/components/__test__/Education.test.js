@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import Education from "../Education";
 import { store } from "../../store/store";
 
@@ -53,5 +53,31 @@ describe("Input entries", () => {
     const inputElement = screen.getByTestId("degreeDateTo");
     fireEvent.change(inputElement, { target: { value: "2022-01-23" } });
     expect(inputElement.value).toBe("2022-01-23");
+  });
+});
+describe("entering data", () => {
+  test("after filling out all education inputs and clicking add, the input fields reset", () => {
+    render(<MockEducation />);
+    const uni = screen.getByPlaceholderText(/University/i);
+    fireEvent.change(uni, { target: { value: "University" } });
+    const degree = screen.getByPlaceholderText(/Degree level/i);
+    fireEvent.change(degree, { target: { value: "bachelors" } });
+    const major = screen.getByPlaceholderText(/Major/i);
+    fireEvent.change(major, { target: { value: "Major" } });
+    const state = screen.getByPlaceholderText(/State/i);
+    fireEvent.change(state, { target: { value: "State" } });
+    const degreeDateFrom = screen.getByTestId("degreeDateFrom");
+    fireEvent.change(degreeDateFrom, { target: { value: "2022-01-21" } });
+    const degreeDateTo = screen.getByTestId("degreeDateTo");
+    fireEvent.change(degreeDateTo, { target: { value: "2022-01-23" } });
+
+    const buttonElement = screen.getByRole("button", { name: /Add/i });
+    fireEvent.click(buttonElement);
+    expect(uni.value).toBe("");
+    expect(degree.value).toBe("");
+    expect(major.value).toBe("");
+    expect(state.value).toBe("");
+    expect(degreeDateFrom.value).toBe("");
+    expect(degreeDateTo.value).toBe("");
   });
 });
