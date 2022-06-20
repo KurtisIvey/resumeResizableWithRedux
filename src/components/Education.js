@@ -93,6 +93,7 @@ const Education = () => {
             From:
           </label>
           <input
+            data-testid="degreeDateFrom"
             id="dateFrom"
             name="degreeDateFrom"
             type="date"
@@ -106,12 +107,13 @@ const Education = () => {
             To:
           </label>
           <input
-            required
+            data-testid="degreeDateTo"
             id="dateTo"
             name="degreeDateTo"
             type="date"
             onChange={(e) => setDegreeDateTo(e.target.value)}
             className="education__date"
+            required
           />
         </span>
         <button className="education__addBtn">Add</button>
