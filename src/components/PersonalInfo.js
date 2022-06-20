@@ -6,12 +6,6 @@ import { infoSliceActions } from "../store/slices/infoSlice";
 const PersonalInfo = () => {
   const dispatch = useDispatch();
   const firstName = useSelector((state) => state.firstName);
-  const lastName = useSelector((state) => state.lastName);
-  const email = useSelector((state) => state.email);
-  const title = useSelector((state) => state.title);
-  const address = useSelector((state) => state.address);
-  const phoneNumber = useSelector((state) => state.phoneNumber);
-
   const setFirstName = (arg) => dispatch(infoSliceActions.setFirstName(arg));
   const setLastName = (arg) => dispatch(infoSliceActions.setLastName(arg));
   const setEmail = (arg) => dispatch(infoSliceActions.setEmail(arg));

@@ -16,7 +16,7 @@ const RenderedResume = () => {
   return (
     <div className="resume">
       <div className="resume__nameTitleContainer">
-        <h2 className="resume__name">
+        <h2 data-testid="firstName" className="resume__name">
           {firstName} {lastName}
         </h2>
         <div className="resume__title">{title}</div>
