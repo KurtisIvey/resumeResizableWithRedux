@@ -15,36 +15,8 @@ const infoSlice = createSlice({
     degreeState: "",
     degreeDateFrom: "",
     degreeDateTo: "",
-    education: [
-      {
-        university: "university",
-        degree: "degree",
-        subject: "computer science",
-        state: "state",
-        degreeDateFrom: "2022-01-21",
-        degreeDateTo: "2022-01-21",
-      },
-      {
-        university: "university",
-        degree: "degree",
-        subject: "computer science",
-        state: "state",
-        degreeDateFrom: "2022-01-21",
-        degreeDateTo: "2022-01-21",
-      },
-    ],
-    experience: [
-      {
-        previousJob: "prev Job",
-        prevJobDateFrom: "2022-01-21",
-        prevJobDateTo: "2022-01-21",
-      },
-      {
-        previousJob: "prev Job",
-        prevJobDateFrom: "2022-01-21",
-        prevJobDateTo: "2022-01-21",
-      },
-    ],
+    education: [],
+    experience: [],
     previousJob: "",
     prevJobDateFrom: "",
     prevJobDateTo: "",

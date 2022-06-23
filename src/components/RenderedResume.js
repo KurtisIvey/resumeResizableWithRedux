@@ -27,7 +27,11 @@ const RenderedResume = () => {
             <h3 className="resume__sectionTitle">Experience</h3>
             {experience.slice(-4).map((item, index) => {
               return (
-                <div key={index} className="resume__renderedExpItemContainer">
+                <div
+                  data-testid="renderedExpItem"
+                  key={index}
+                  className="resume__renderedExpItemContainer"
+                >
                   <div className="resume__renderedExpFromTo">
                     <div>
                       {item.prevJobDateFrom.substring(5, 8)}
@@ -47,11 +51,18 @@ const RenderedResume = () => {
               );
             })}
           </div>
-          <div className="resume__educationContainer">
+          <div
+            data-testid="educationContainer"
+            className="resume__educationContainer"
+          >
             <h3 className="resume__sectionTitle">Education</h3>
             {education.slice(-4).map((item, index) => {
               return (
-                <div key={index} className="resume__renderedEdItemContainer">
+                <div
+                  data-testid="renderedEdItem"
+                  key={index}
+                  className="resume__renderedEdItemContainer"
+                >
                   <div className="resume__edItemFromTo">
                     <div>
                       {item.degreeDateFrom.substring(5, 8)}

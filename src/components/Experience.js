@@ -97,8 +97,11 @@ const Experience = () => {
           />
         </span>
 
-        <button className="experience__addBtn">Add</button>
+        <button data-testid="experienceAddBtn" className="experience__addBtn">
+          Add
+        </button>
         <div
+          data-testid="experienceDeleteBtn"
           onClick={() => handleDeleteExperience()}
           className="experience__deleteBtn"
         >

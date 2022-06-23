@@ -139,8 +139,11 @@ const Education = () => {
             required
           />
         </span>
-        <button className="education__addBtn">Add</button>
+        <button data-testid="educationAddBtn" className="education__addBtn">
+          Add
+        </button>
         <div
+          data-testid="educationDeleteBtn"
           className="education__deleteBtn"
           onClick={(e) => handleDeleteEducation(e)}
         >
