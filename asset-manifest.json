@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/resumeResizableWithRedux/static/css/main.f70ceea1.css",
+    "main.js": "/resumeResizableWithRedux/static/js/main.20280cbb.js",
+    "index.html": "/resumeResizableWithRedux/index.html",
+    "main.f70ceea1.css.map": "/resumeResizableWithRedux/static/css/main.f70ceea1.css.map",
+    "main.20280cbb.js.map": "/resumeResizableWithRedux/static/js/main.20280cbb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f70ceea1.css",
+    "static/js/main.20280cbb.js"
+  ]
+}
