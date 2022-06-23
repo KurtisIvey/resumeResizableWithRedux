@@ -224,6 +224,7 @@ describe("experience input section taking input and rendering through state read
       screen.getByPlaceholderText(/Previous Job/i);
     fireEvent.change(previousJobInputElement, {
       target: { value: "previous job entry" },
+      //
     });
     const previousJobFromInputElement = screen.getByTestId("previousJobFrom");
     fireEvent.change(previousJobFromInputElement, {
