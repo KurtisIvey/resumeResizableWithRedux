@@ -26,6 +26,7 @@
     border: none;
     padding-left: 7px;
     grid-column: span 2;
+    background-color: white;
 }
 
 .personalInfo__input:focus-visible {
